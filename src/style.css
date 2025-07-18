@@ -1,0 +1,70 @@
+@import "tailwindcss";
+/* Gaya dasar untuk HTML dan Body */
+html,
+body {
+  margin: 0;
+  padding: 0;
+  min-height: 100vh; /* Memastikan tinggi yang cukup untuk scrolling */
+}
+
+/* Pastikan app div juga mengambil tinggi penuh */
+#app {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Scroll behavior untuk smooth scrolling */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Font family global */
+body {
+  font-family: "Inter", sans-serif;
+}
+
+/* --- KRUSIAL UNTUK BACKGROUND DAN WARNA TEKS DASAR DARI DARK/LIGHT MODE --- */
+
+html.dark {
+  background-color: #1a202c; /* Background gelap saat dark mode aktif */
+  color: #e2e8f0; /* Warna teks terang dasar saat dark mode aktif */
+}
+
+html.light {
+  background-color: #f8f8f4; /* Adjusted: Even softer, slightly warmer off-white */
+  color: #212529; /* Warna teks gelap dasar saat light mode aktif */
+}
+
+/* Keyframes dan Animasi Kustom */
+.animate-bounce {
+  animation: bounce 2s infinite;
+}
+@keyframes bounce {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-8px);
+  }
+}
+
+/* Typing animation cursor */
+.cursor {
+  display: inline-block;
+  width: 2px;
+  height: 1.25em;
+  background-color: currentColor;
+  animation: blink-caret 0.8s step-end infinite;
+}
+
+@keyframes blink-caret {
+  0%,
+  100% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+  }
+}
