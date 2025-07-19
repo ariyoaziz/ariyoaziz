@@ -1,5 +1,5 @@
 import { createRouter, createWebHistory } from "vue-router";
-import Home from "../src/components/home.vue"; // Home sekarang adalah halaman single-page Anda
+import Home from "./home.vue"; // Home sekarang adalah halaman single-page Anda
 
 const routes = [
   {

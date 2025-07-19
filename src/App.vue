@@ -1,38 +1,36 @@
 <script setup>
 import { ref, onMounted, provide } from 'vue';
-import AOS from 'aos'; // Import the AOS library
-import 'aos/dist/aos.css'; // Import the AOS CSS
+import AOS from 'aos';
+import 'aos/dist/aos.css';
 
 const isDarkMode = ref(false);
 
 const applyTheme = () => {
-  // This part applies the 'dark' or 'light' class to the <html> element
   document.documentElement.classList.toggle('dark', isDarkMode.value);
-  document.documentElement.classList.toggle('light', !isDarkMode.value);
 };
 
 const toggleDarkMode = () => {
   isDarkMode.value = !isDarkMode.value;
-  localStorage.setItem('darkModeEnabled', isDarkMode.value);
-  applyTheme(); // Call to apply visual changes
+  localStorage.setItem('darkModeEnabled', isDarkMode.value.toString());
+  applyTheme();
 };
 
 provide('isDarkMode', isDarkMode);
 provide('toggleDarkMode', toggleDarkMode);
 
 onMounted(() => {
-  // Retrieve saved dark mode preference from localStorage
   const savedDarkMode = localStorage.getItem('darkModeEnabled');
-  isDarkMode.value = savedDarkMode ? JSON.parse(savedDarkMode) : false;
-  applyTheme(); // Apply theme when the application loads
 
-  // Initialize AOS after the component is mounted and the DOM is ready
+  if (savedDarkMode !== null) {
+    isDarkMode.value = JSON.parse(savedDarkMode);
+  } else {
+    isDarkMode.value = window.matchMedia('(prefers-color-scheme: dark)').matches;
+  }
+  applyTheme();
+
   AOS.init({
-    duration: 1000, // Duration of the animation in milliseconds
-    once: true,     // Whether animation should only happen once - while scrolling down
-    // Add more global AOS options here if needed, e.g.:
-    // offset: 120, // offset (in px) from the original trigger point
-    // mirror: false, // whether elements should animate out while scrolling past them
+    duration: 1000,
+    once: true,
   });
 });
 </script>
@@ -43,7 +41,22 @@ onMounted(() => {
   </div>
 </template>
 
-<style scoped>
-/* Ensure no styles here try to override html or body global theme classes */
-/* Only add specific styles for div #app if necessary, e.g., font-family */
+<style>
+html {
+  background-color: #ffffff;
+  color: #1a202c;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+html.dark {
+  background-color: #1a202c;
+  color: #e2e8f0;
+}
+
+body {
+  margin: 0;
+  font-family: 'Inter', sans-serif;
+  background-color: inherit;
+  color: inherit;
+}
 </style>
