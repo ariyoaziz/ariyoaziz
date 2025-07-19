@@ -215,10 +215,12 @@ window.addEventListener("resize", () => {
 
                 <ul class="grid grid-cols-1 md:grid-cols-2 gap-6">
                     <!-- UTY -->
-                    <li class="p-5 rounded-xl shadow-sm transition-all duration-300 backdrop-blur-sm border" :class="{
-                        'bg-white/60 border-gray-200 text-gray-900 ring-1 ring-inset ring-white/40': !isDarkMode,
-                        'bg-gray-800/50 border-gray-700 text-gray-100': isDarkMode
-                    }">
+                    <li class="p-5 rounded-xl shadow-sm transition-all duration-300 transform hover:scale-[1.02] hover:shadow-lg backdrop-blur-sm border hover:border-primary"
+                        :class="{
+                            'bg-white/60 border-gray-200 text-gray-900 ring-1 ring-inset ring-white/40 hover:bg-white/80': !isDarkMode,
+                            'bg-gray-800/50 border-gray-700 text-gray-100 hover:bg-gray-800/70': isDarkMode
+                        }">
+
                         <p class="font-semibold text-lg mb-1"
                             :class="{ 'text-gray-900': !isDarkMode, 'text-gray-100': isDarkMode }">
                             Universitas Teknologi Yogyakarta
@@ -232,16 +234,19 @@ window.addEventListener("resize", () => {
                             basis data untuk solusi teknologi berbasis software.
                         </p>
 
-                        <p class="text-xs mt-3" :class="{ 'text-gray-500': !isDarkMode, 'text-gray-400': isDarkMode }">
+                        <p class="text-xs mt-3 italic"
+                            :class="{ 'text-gray-500': !isDarkMode, 'text-gray-400': isDarkMode }">
                             September 2022 – Sekarang
                         </p>
                     </li>
 
                     <!-- SMK Ma'arif 4 Kebumen -->
-                    <li class="p-5 rounded-xl shadow-sm transition-all duration-300 backdrop-blur-sm border" :class="{
-                        'bg-white/60 border-gray-200 text-gray-900 ring-1 ring-inset ring-white/40': !isDarkMode,
-                        'bg-gray-800/50 border-gray-700 text-gray-100': isDarkMode
-                    }">
+                    <li class="p-5 rounded-xl shadow-sm transition-all duration-300 transform hover:scale-[1.02] hover:shadow-lg backdrop-blur-sm border hover:border-primary"
+                        :class="{
+                            'bg-white/60 border-gray-200 text-gray-900 ring-1 ring-inset ring-white/40 hover:bg-white/80': !isDarkMode,
+                            'bg-gray-800/50 border-gray-700 text-gray-100 hover:bg-gray-800/70': isDarkMode
+                        }">
+
                         <p class="font-semibold text-lg mb-1"
                             :class="{ 'text-gray-900': !isDarkMode, 'text-gray-100': isDarkMode }">
                             SMK Ma’arif 4 Kebumen
@@ -249,13 +254,13 @@ window.addEventListener("resize", () => {
                         <p class="text-sm mb-2" :class="{ 'text-gray-700': !isDarkMode, 'text-gray-300': isDarkMode }">
                             Teknik Audio Video
                         </p>
-
                         <p class="text-sm mt-3" :class="{ 'text-gray-600': !isDarkMode, 'text-gray-400': isDarkMode }">
                             Memperoleh dasar-dasar teknik elektronika, mikrokontroler, dan sistem perangkat audio-video,
                             sebagai fondasi awal dalam dunia teknologi dan rekayasa perangkat.
                         </p>
 
-                        <p class="text-xs mt-3" :class="{ 'text-gray-500': !isDarkMode, 'text-gray-400': isDarkMode }">
+                        <p class="text-xs italic mt-3"
+                            :class="{ 'text-gray-500': !isDarkMode, 'text-gray-400': isDarkMode }">
                             Juli 2019 – Juni 2021
                         </p>
                     </li>
@@ -273,9 +278,8 @@ window.addEventListener("resize", () => {
                 <div class="relative">
                     <div id="certificates-scroll"
                         class="cursor-grab flex overflow-x-auto gap-4 snap-x snap-mandatory px-2 scroll-smooth hide-scrollbar">
-
                         <div v-for="(cert, index) in sertifikatList" :key="index"
-                            class="min-w-[300px] md:min-w-[400px] snap-start p-5 rounded-xl shadow-sm transition-all duration-300 backdrop-blur-sm flex flex-col justify-between border"
+                            class="min-w-[300px] md:min-w-[400px] snap-start p-5 rounded-xl shadow-sm transition-all duration-300 backdrop-blur-sm flex flex-col justify-between border hover:scale-[1.02] hover:shadow-lg hover:border-primary"
                             :class="{
                                 'bg-white/60 border-gray-200 text-gray-900 ring-1 ring-inset ring-white/40': !isDarkMode,
                                 'bg-gray-800/50 border-gray-700 text-gray-100': isDarkMode
@@ -300,19 +304,7 @@ window.addEventListener("resize", () => {
                                     {{ cert.date }}
                                 </p>
                             </div>
-                            <a :href="cert.link" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center px-4 py-2 mt-4 text-sm rounded-full font-semibold
-            bg-gradient-to-b from-blue-500 to-blue-700 text-white
-            hover:from-blue-600 hover:to-blue-800
-            dark:from-blue-600 dark:to-blue-800
-            dark:hover:from-blue-700 dark:hover:to-blue-900
-            transition-all duration-300 shadow-md">
-                                <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 mr-2" fill="none"
-                                    viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                                    <path stroke-linecap="round" stroke-linejoin="round"
-                                        d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
-                                </svg>
-                                Lihat Sertifikat
-                            </a>
+
                         </div>
                     </div>
                     <!-- Dots navigation -->
@@ -330,33 +322,40 @@ window.addEventListener("resize", () => {
 
             <div class="mb-1" data-aos="fade-up" data-aos-delay="700">
                 <h3 class="text-2xl font-bold mb-8 text-center transition-colors duration-300"
-                    :class="{ 'text-gray-800': !isDarkMode, 'text-gray-100': isDarkMode }">Experience</h3>
+                    :class="{ 'text-gray-800': !isDarkMode, 'text-gray-100': isDarkMode }">
+                    Pengalaman
+                </h3>
 
                 <ul class="grid grid-cols-1 md:grid-cols-2 gap-6">
                     <li v-for="(item, index) in pengalamanList" :key="index"
-                        class="p-5 rounded-xl shadow-sm transition-all duration-300 backdrop-blur-sm flex flex-col justify-between border"
+                        class="p-5 rounded-xl shadow-sm transition-all duration-300 transform hover:scale-[1.02] hover:shadow-lg backdrop-blur-sm border hover:border-primary"
                         :class="{
-                            'bg-white/60 border-gray-200 text-gray-900 ring-1 ring-inset ring-white/40': !isDarkMode,
-                            'bg-gray-800/50 border-gray-700 text-gray-100': isDarkMode
+                            'bg-white/60 border-gray-200 text-gray-900 ring-1 ring-inset ring-white/40 hover:bg-white/80': !isDarkMode,
+                            'bg-gray-800/50 border-gray-700 text-gray-100 hover:bg-gray-800/70': isDarkMode
                         }">
-                        <div>
-                            <p class="font-semibold text-lg mb-1"
-                                :class="{ 'text-gray-900': !isDarkMode, 'text-gray-100': isDarkMode }">{{ item.title }}
+                        <div class=" space-y-1">
+                            <p class="text-lg font-semibold"
+                                :class="{ 'text-gray-900': !isDarkMode, 'text-gray-100': isDarkMode }">
+                                {{ item.title }}
                             </p>
-                            <p class="text-sm mb-2"
-                                :class="{ 'text-gray-700': !isDarkMode, 'text-gray-300': isDarkMode }">{{ item.location
-                                }}</p>
-                            <p class="text-xs mb-3"
-                                :class="{ 'text-gray-500': !isDarkMode, 'text-gray-400': isDarkMode }">{{ item.date }}
+                            <p class="text-sm" :class="{ 'text-gray-700': !isDarkMode, 'text-gray-300': isDarkMode }">
+                                {{ item.location }}
                             </p>
-                            <ul class="list-disc list-inside mt-3 space-y-1 text-sm"
-                                :class="{ 'text-gray-700': !isDarkMode, 'text-gray-300': isDarkMode }">
-                                <li v-for="(task, idx) in item.tasks" :key="idx">{{ task }}</li>
-                            </ul>
+                            <p class="text-xs italic"
+                                :class="{ 'text-gray-500': !isDarkMode, 'text-gray-400': isDarkMode }">
+                                {{ item.date }}
+                            </p>
                         </div>
+
+                        <ul class="list-disc list-outside pl-5 mt-1 space-y-1 text-sm leading-relaxed"
+                            :class="{ 'text-gray-700': !isDarkMode, 'text-gray-300': isDarkMode }">
+                            <li v-for="(task, idx) in item.tasks" :key="idx">{{ task }}</li>
+                        </ul>
+
                     </li>
                 </ul>
             </div>
+
         </div>
     </section>
 </template>

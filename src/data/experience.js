@@ -1,32 +1,31 @@
 export const pengalamanList = [
     {
-        title: "UI/UX Designer Intern - [Nama Perusahaan]",
-        location: "Yogyakarta",
-        date: "Juni 2025 - Agustus 2025",
+        title: "Fotografer Lepas",
+        location: "Kebumen / Freelance",
+        date: "Januari 2022 - Sekarang",
         tasks: [
-            "Melakukan riset pengguna dan analisis kompetitor untuk produk mobile.",
-            "Membuat wireframe, mockup, dan prototipe interaktif menggunakan Figma.",
-            "Berkolaborasi dengan tim pengembang untuk memastikan implementasi desain yang akurat."
+            "Mengambil dan mengedit foto untuk berbagai acara, proyek kreatif, dan kebutuhan klien.",
+            "Fokus pada penciptaan visual yang estetis dan berkualitas tinggi sesuai permintaan klien."
         ]
     },
     {
-        title: "Freelance Mobile App Developer - [Proyek Spesifik]",
-        location: "Remote",
-        date: "Maret 2024 - Mei 2024",
+        title: "Asisten Teknisi – ELECTRONIC PLUS",
+        location: "Kebumen, Jawa Tengah",
+        date: " September 2021 - Mei 2022",
         tasks: [
-            "Mengembangkan aplikasi Android sederhana menggunakan Flutter/Dart.",
-            "Mengelola database lokal dan integrasi API dasar.",
-            "Melakukan debugging dan pengujian untuk memastikan fungsionalitas."
+            "Membantu dalam proses perbaikan dan pemeliharaan perangkat elektronik.",
+            "Memberikan dukungan teknis serta layanan kepada pelanggan.",
+            "Membimbing siswa magang dalam kegiatan praktik kerja industri."
         ]
     },
     {
-        title: "Freelance Mobile App Developer - [Proyek Spesifik]",
-        location: "Remote",
-        date: "Maret 2024 - Mei 2024",
+        title: "Magang Industri – ELECTRONIC PLUS",
+        location: "Kebumen, Jawa Tengah",
+        date: " September 2020 - Desember 2020",
         tasks: [
-            "Mengembangkan aplikasi Android sederhana menggunakan Flutter/Dart.",
-            "Mengelola database lokal dan integrasi API dasar.",
-            "Melakukan debugging dan pengujian untuk memastikan fungsionalitas."
+            "Membantu dalam proses perbaikan dan pemeliharaan perangkat elektronik.",
+            "Terlibat langsung dalam perbaikan dan perawatan perangkat elektronik.",
+            "Mempelajari alur kerja teknisi serta proses pelayanan dalam industri elektronik."
         ]
-    }
+    },
 ];

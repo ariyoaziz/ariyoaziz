@@ -84,7 +84,7 @@ const getLabelClass = (label) => {
                 <!-- Project Cards -->
                 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 w-full flex-grow">
                     <div v-for="(project, index) in paginatedProjects" :key="project.title"
-                        class="p-6 rounded-xl shadow-sm transition-all duration-300 backdrop-blur-sm flex flex-col text-center border"
+                        class="p-6 rounded-xl shadow-sm transition-all duration-300 backdrop-blur-sm flex flex-col text-center border hover:scale-[1.02] hover:shadow-lg  hover:border-primary"
                         :class="{
                             'bg-white/60 border-gray-200 text-gray-900 ring-1 ring-inset ring-white/40': !isDarkMode,
                             'bg-gray-800/50 border-gray-700 text-gray-100': isDarkMode
