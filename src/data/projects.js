@@ -1,4 +1,37 @@
 export const projectsData = [
+
+    {
+        title: "Vitacal App – Aplikasi Kesehatan",
+        description: "Aplikasi mobile yang menghitung kebutuhan kalori dan memberikan rekomendasi berdasarkan data pengguna menggunakan algoritma Mifflin-St Jeor. Proyek ini dikembangkan sebagai bagian dari Tugas Akhir, menggunakan Flutter untuk frontend, Flask untuk backend, serta integrasi OTP melalui Fonnte API. (Coming Soon)",
+        imageSrc: "/images/projects/vitacal-app.png", // Ganti sesuai lokasi gambar
+        techTags: [
+            "Mobile Application",
+            "Flutter",
+            "Flask",
+            "Fonnte API",
+            "Backend",
+            "Health App",
+            "Tugas Akhir",
+            "Mifflin Algorithm",
+            "UI/UX Design",
+            "Figma"
+        ],
+        projectUrl: "https://github.com/ariyoaziz/vitacal_app"
+    },
+    {
+        title: "Pameran Besar – Semesta Kecil",
+        description: "Partisipasi dalam pameran fotografi bertajuk 'Semesta Kecil' pada tahun 2025, menampilkan karya visual bertema narasi kehidupan dan ruang pribadi.",
+        imageSrc: "/images/projects/semesta-kecil.png", // Ganti dengan gambar jika ada
+        techTags: ["Photography", "Event", "Exhibition"],
+        projectUrl: "#"
+    },
+    {
+        title: "Website Pribadi v2",
+        description: "Versi kedua dari website portofolio pribadi dengan desain lebih modern dan interaktif, dibangun menggunakan Vue 3, Vite, dan Tailwind CSS.",
+        imageSrc: "/images/projects/profil-v2.png", // Pastikan file ini tersedia di direktori gambar proyek
+        techTags: ["Frontend", "Vue.js", "Vite", "Tailwind CSS", "Responsive Design", "Personal Website"],
+        projectUrl: "https://github.com/ariyoaziz/ariyoaziz"
+    },
     {
         title: "Website Pribadi v1",
         description: "Versi pertama dari website portofolio pribadi yang dibangun menggunakan React, menampilkan informasi dasar tentang diri saya.",
@@ -79,11 +112,25 @@ export const projectsData = [
         projectUrl: "https://github.com/ariyoaziz/web_peminjaman"
     },
     {
+        title: "Pameran Besar – Tanpa Batas",
+        description: "Karya fotografi ditampilkan dalam pameran 'Tanpa Batas' pada tahun 2024, mengeksplorasi batas imajinasi dalam ruang visual kolektif.",
+        imageSrc: "/images/projects/tanpa-batas.png", // Ganti dengan gambar jika ada
+        techTags: ["Photography", "Event", "Exhibition"],
+        projectUrl: "#"
+    },
+    {
         title: "Aplikasi CLI Layanan Pengiriman",
         description: "Aplikasi berbasis command-line interface (CLI) untuk simulasi layanan pengiriman. Dikembangkan menggunakan Python sebagai tugas kelompok pada mata kuliah Pemrograman Berbasis Objek di semester 3.",
         imageSrc: "../src/assets/images/projects/oop_pengirimanbarang.png",
         techTags: ["Backend", "Python", "CLI", "Object-Oriented Programming"],
         projectUrl: "https://github.com/ariyoaziz/oop-layanan-pengiriman"
+    },
+    {
+        title: "Pameran Diksar – Rona",
+        description: "Karya fotografi dipamerkan dalam event 'Rona' sebagai bagian dari kegiatan dasar organisasi fotografi pada tahun 2023.",
+        imageSrc: "/images/projects/rona.png", // Ganti dengan gambar jika ada
+        techTags: ["Photography", "Event", "Exhibition"],
+        projectUrl: "#"
     },
 
     {
