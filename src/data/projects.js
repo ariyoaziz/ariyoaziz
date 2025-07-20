@@ -3,7 +3,7 @@ export const projectsData = [
         title: "Vitacal App – Aplikasi Kesehatan",
         description:
             "Aplikasi mobile untuk menghitung kebutuhan kalori harian dan memberikan rekomendasi nutrisi berdasarkan data pengguna. Dikembangkan menggunakan Flutter (frontend) dan Flask (backend), dengan integrasi OTP melalui Fonnte API. Dirancang untuk tugas akhir dengan pendekatan algoritma Mifflin-St Jeor. (Coming Soon)",
-        imageSrc: "/images/projects/vitacal-app.png",
+        imageSrc: "../src/assets/images/projects/VitaCal.png",
         techTags: [
             "Mobile Application",
             "Flutter",
@@ -21,15 +21,15 @@ export const projectsData = [
         title: "Pameran Foto – Semesta Kecil",
         description:
             "Karya fotografi bertema narasi kehidupan dan ruang pribadi yang dipamerkan dalam event 'Semesta Kecil' tahun 2025.",
-        imageSrc: "/images/projects/semesta-kecil.png",
+        imageSrc: "../src/assets/images/projects/semesta-kecil.png",
         techTags: ["Photography", "Event", "Exhibition"],
-        projectUrl: "#"
+        projectUrl: "https://www.instagram.com/p/DMCtoh9zcL7/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA=="
     },
     {
         title: "Website Pribadi v2",
         description:
             "Versi terbaru dari portofolio pribadi yang lebih modern dan interaktif. Dibangun dengan Vue 3, Vite, dan Tailwind CSS, serta mendukung dark mode dan sistem filter proyek.",
-        imageSrc: "/images/projects/profil-v2.png",
+        imageSrc: "../src/assets/images/projects/my_v2.png",
         techTags: [
             "Frontend",
             "Vue.js",
@@ -44,7 +44,7 @@ export const projectsData = [
         title: "Website Pribadi v1",
         description:
             "Versi awal website portofolio pribadi yang dibangun menggunakan React. Fokus pada penyampaian informasi dasar dan eksplorasi komponen frontend.",
-        imageSrc: "/images/projects/profil-v1.png",
+        imageSrc: "../src/assets/images/projects/my_v1.png",
         techTags: ["Frontend", "React", "JavaScript", "Personal Website"],
         projectUrl: "https://github.com/ariyoaziz/profil"
     },
@@ -68,7 +68,7 @@ export const projectsData = [
         title: "CuacaQu – Aplikasi Info Cuaca",
         description:
             "Aplikasi Flutter yang menampilkan prakiraan cuaca real-time dengan API dari OpenWeather. Menggunakan arsitektur BLoC untuk manajemen state.",
-        imageSrc: "../src/assets/images/projects/cuacaqu.png",
+        imageSrc: "../src/assets/images/projects/Cuaca.jpg",
         techTags: ["Mobile Application", "Flutter", "OpenWeather API", "BLoC", "UI/UX Design"],
         projectUrl: "https://github.com/ariyoaziz/cuacaqu"
     },
@@ -76,7 +76,7 @@ export const projectsData = [
         title: "CineHub – Tiket Bioskop Online",
         description:
             "Aplikasi pemesanan tiket bioskop dengan fitur daftar film, jadwal tayang, dan pemesanan langsung. Dibuat menggunakan Flutter sebagai proyek pribadi.",
-        imageSrc: "../src/assets/images/projects/cinehub.png",
+        imageSrc: "../src/assets/images/projects/TiketBioskop.png",
         techTags: ["Mobile Application", "Flutter", "Dart", "UI/UX Design"],
         projectUrl: "https://github.com/ariyoaziz/cinehub"
     },
@@ -84,7 +84,7 @@ export const projectsData = [
         title: "Mini Game dengan React",
         description:
             "Proyek mini game interaktif menggunakan React. Dibuat untuk memperdalam pemahaman dasar komponen, state, dan event handling.",
-        imageSrc: "../src/assets/images/projects/react_game.png",
+        imageSrc: "../src/assets/images/projects/game-react.png",
         techTags: ["Frontend", "React", "JavaScript"],
         projectUrl: "https://github.com/ariyoaziz/Rect_game"
     },
@@ -121,6 +121,14 @@ export const projectsData = [
         projectUrl: "https://github.com/ariyoaziz/dasar_framework_flutter"
     },
     {
+        title: "UI/UX Redesign – Aplikasi LinkAja (Halaman Beranda)",
+        description:
+            "Redesain halaman utama aplikasi LinkAja dengan fokus pada penyederhanaan antarmuka, pengelompokan fitur yang lebih logis, serta peningkatan aksesibilitas visual. Desain menampilkan gaya modern dan rapi untuk meningkatkan kemudahan navigasi dan keterbacaan di perangkat mobile.",
+        imageSrc: "../src/assets/images/projects/linkaja.png",
+        techTags: ["UI/UX Design", "Figma", "Redesign", "Mobile App"],
+        projectUrl: "https://www.figma.com/proto/IDGtCHDIcpBGVSCdmmEieC/Desain-Ulang-APP-LInkAja?page-id=5%3A57&node-id=5-60&p=f&viewport=293%2C-18%2C1.28&t=tBMct1pVLikWEzHC-1&scaling=scale-down&content-scaling=fixed"
+    },
+    {
         title: "CLI Pemutar Musik Sederhana",
         description:
             "Aplikasi pemutar musik berbasis CLI menggunakan Python. Proyek kelompok pada mata kuliah Pemrograman Berbasis Objek (semester 3).",
@@ -140,9 +148,9 @@ export const projectsData = [
         title: "Pameran Foto – Tanpa Batas",
         description:
             "Karya fotografi bertema eksplorasi imajinasi yang dipamerkan dalam event 'Tanpa Batas' tahun 2024.",
-        imageSrc: "/images/projects/tanpa-batas.png",
+        imageSrc: "../src/assets/images/projects/tanpa-batas.png",
         techTags: ["Photography", "Event", "Exhibition"],
-        projectUrl: "#"
+        projectUrl: "https://www.instagram.com/p/C7LNeYthrUm/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA=="
     },
     {
         title: "CLI Simulasi Pengiriman",
@@ -156,7 +164,7 @@ export const projectsData = [
         title: "Pameran Diksar – Rona",
         description:
             "Karya fotografi yang ditampilkan dalam pameran 'Rona' sebagai bagian dari pelatihan dasar organisasi fotografi tahun 2023.",
-        imageSrc: "/images/projects/rona.png",
+        imageSrc: "../src/assets/images/projects/rona.png",
         techTags: ["Photography", "Event", "Exhibition"],
         projectUrl: "#"
     },
@@ -167,7 +175,33 @@ export const projectsData = [
         imageSrc: "../src/assets/images/projects/estetika_kopi.png",
         techTags: ["Frontend", "CodeIgniter 4", "PHP"],
         projectUrl: "https://github.com/ariyoaziz/pemrograman_web-estetika.kopi-"
+    },
+    {
+        title: "UI/UX Design – Website E-Commerce Alat Outdoor",
+        description:
+            "Desain antarmuka untuk platform e-commerce yang menjual perlengkapan outdoor seperti tenda, alat masak, dan pakaian hiking. Fokus pada pengalaman pengguna yang intuitif, navigasi yang efisien, serta visual yang bersih dan natural. Tersedia halaman homepage, katalog produk, filter, detail produk, keranjang, dan checkout.",
+        imageSrc: "../src/assets/images/projects/e-com.png",
+        techTags: ["UI/UX Design", "Figma", "E-Commerce"],
+        projectUrl: "https://www.figma.com/design/cQTRvW7zsCFRTWT30f5tHe/e-Com?node-id=0-1&t=kskOzYVPNCdrkweR-1"
+    },
+    {
+        title: "UI/UX Design – Order Food App",
+        description:
+            "Konsep desain aplikasi pemesanan makanan dengan pendekatan clean dan modern. Menyediakan pengalaman pengguna yang mudah dinavigasi, fokus pada visual yang menarik dan efisiensi dalam proses pemesanan. Dirancang menggunakan Figma dengan alur pengguna dan prototipe yang terstruktur.",
+        imageSrc: "../src/assets/images/projects/food-order.png",
+        techTags: ["UI/UX Design", "Figma", "Mobile App", "Prototype"],
+        projectUrl: "https://www.behance.net/gallery/210655317/order-food"
+    },
+    {
+        title: "UI/UX Design – Coffee App",
+        description:
+            "Desain antarmuka aplikasi pemesanan kopi yang elegan dan modern, dengan tampilan visual yang mengedepankan kenyamanan pengguna. Dirancang menggunakan Figma, menampilkan alur pengguna dari pemilihan produk hingga checkout, serta elemen visual yang menarik dan konsisten.",
+        imageSrc: "../src/assets/images/projects/kopi.png",
+        techTags: ["UI/UX Design", "Figma", "Mobile App", "Product Design"],
+        projectUrl: "https://www.behance.net/gallery/210655381/coffee"
     }
+
+
 ];
 
 export const initialFilterLabels = [

@@ -101,7 +101,7 @@ const props = defineProps({
                         Kamu bisa bantu saya tetap berkarya dengan mentraktir saya secangkir kopi. Dukungan kecilmu
                         sangat berarti! 🙌
                     </p>
-                    <a href="https://ko-fi.com/yourprofile" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center px-4 py-2 mt-2 text-sm rounded-full font-semibold
+                    <a href="https://saweria.co/ariyoaziz" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center px-4 py-2 mt-2 text-sm rounded-full font-semibold
             bg-gradient-to-b from-blue-500 to-blue-700 text-white
             hover:from-blue-600 hover:to-blue-800
             dark:from-blue-600 dark:to-blue-800 dark:hover:from-blue-700 dark:hover:to-blue-900
