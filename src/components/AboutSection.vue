@@ -1,5 +1,6 @@
 <script setup>
 import { computed } from 'vue';
+import { rawInfoList, educationList } from '../data/infolist.js';
 import { techLogos } from '../data/techLogos';
 import { sertifikatList } from "../data/sertifikat.js";
 import { pengalamanList } from '../data/experience.js';
@@ -12,15 +13,21 @@ const props = defineProps({
     }
 });
 
-const birthDate = new Date('2004-03-18');
-const calculatedAge = computed(() => {
-    const today = new Date();
-    let age = today.getFullYear() - birthDate.getFullYear();
-    const m = today.getMonth() - birthDate.getMonth();
-    if (m < 0 || (m === 0 && today.getDate() < birthDate.getDate())) {
-        age--;
-    }
-    return age;
+// Hitung usia
+const birthYear = 2002;
+const calculatedAge = computed(() => new Date().getFullYear() - birthYear);
+
+// Olah data agar usia bisa disisipkan
+const infoList = computed(() => {
+    return rawInfoList.map(item => {
+        if (item.isAge) {
+            return {
+                ...item,
+                value: `${calculatedAge.value} Tahun`
+            };
+        }
+        return item;
+    });
 });
 const activeIndex = ref(0);
 
@@ -98,11 +105,17 @@ window.addEventListener("resize", () => {
         <div
             class="absolute top-0 left-0 w-full h-full z-0 bg-[url('/images/decorative-pattern.png')] bg-cover bg-center">
         </div>
-        <div class="relative mb-12 text-center z-10 about-me-title-wrapper">
-            <h2 class="text-4xl sm:text-5xl font-extrabold relative z-10 transition-colors duration-300"
-                :class="{ 'text-gray-900': !isDarkMode, 'text-gray-100': isDarkMode }">About Me</h2>
+        <div class="relative mt-24 mb-12 text-center z-10 about-me-title-wrapper">
+            <h2 class="text-4xl sm:text-5xl font-extrabold mb-4 relative z-10 transition-colors duration-300"
+                :class="{ 'text-gray-900': !isDarkMode, 'text-gray-100': isDarkMode }">
+                Kenalan Yuk!
+            </h2>
+            <p class="max-w-xl mx-auto text-base sm:text-lg font-medium transition-colors duration-300"
+                :class="{ 'text-gray-600': !isDarkMode, 'text-gray-300': isDarkMode }">
+                Sedikit cerita tentang saya, latar belakang, dan hal-hal yang saya sukai dalam dunia teknologi dan
+                kreatif.
+            </p>
         </div>
-
         <div class="w-full max-w-5xl px-4 flex-grow relative z-10">
             <div class="md:flex md:space-x-12 mb-12">
                 <div class="md:w-1/2 mb-8 md:mb-0" data-aos="fade-right" data-aos-delay="100">
@@ -110,65 +123,35 @@ window.addEventListener("resize", () => {
                         :class="{ 'text-gray-900': !isDarkMode, 'text-gray-100': isDarkMode }">
                         Profil
                     </h3>
-                    <ul class="space-y-4">
-                        <!-- Nama Lengkap -->
-                        <li class="flex items-center gap-4 p-4 rounded-lg transition-colors duration-200 backdrop-blur-sm"
+                    <ul class="space-y-4 w-full max-w-2xl mx-auto px-4">
+                        <li v-for="(item, index) in infoList" :key="index"
+                            class="flex items-center gap-4 p-4 rounded-lg backdrop-blur-sm transition-colors duration-200"
                             :class="{ 'bg-white/90': !isDarkMode, 'bg-gray-800/60': isDarkMode }">
-                            <i class="fa-solid fa-id-card text-blue-700 dark:text-blue-500 text-lg"></i>
-                            <p class="text-base" :class="{ 'text-gray-900': !isDarkMode, 'text-gray-100': isDarkMode }">
-                                <span class="font-semibold">Nama Lengkap:</span> Ariyo Aziz Pratama
-                            </p>
-                        </li>
+                            <!-- Ikon di tengah vertikal -->
+                            <i :class="`${item.icon} text-blue-700 dark:text-blue-500 text-xl flex-shrink-0`"></i>
 
-                        <!-- Usia -->
-                        <li class="flex items-center gap-4 p-4 rounded-lg transition-colors duration-200 backdrop-blur-sm"
-                            :class="{ 'bg-white/90': !isDarkMode, 'bg-gray-800/60': isDarkMode }">
-                            <i class="fa-solid fa-hourglass-half text-blue-700 dark:text-blue-500 text-lg"></i>
-                            <p class="text-base" :class="{ 'text-gray-900': !isDarkMode, 'text-gray-100': isDarkMode }">
-                                <span class="font-semibold">Usia:</span> {{ calculatedAge }} Tahun
-                            </p>
-                        </li>
+                            <!-- Label & Value -->
+                            <div class="flex flex-col sm:flex-row sm:items-center sm:gap-2 w-full">
+                                <span class="font-semibold text-sm sm:text-base"
+                                    :class="{ 'text-gray-900': !isDarkMode, 'text-gray-100': isDarkMode }">
+                                    {{ item.label }}:
+                                </span>
 
-                        <!-- Status -->
-                        <li class="flex items-center gap-4 p-4 rounded-lg transition-colors duration-200 backdrop-blur-sm"
-                            :class="{ 'bg-white/90': !isDarkMode, 'bg-gray-800/60': isDarkMode }">
-                            <i class="fa-solid fa-user-graduate text-blue-700 dark:text-blue-500 text-lg"></i>
-                            <p class="text-base" :class="{ 'text-gray-900': !isDarkMode, 'text-gray-100': isDarkMode }">
-                                <span class="font-semibold">Status:</span> Mahasiswa
-                            </p>
-                        </li>
+                                <span v-if="item.type === 'text'" class="text-sm sm:text-base"
+                                    :class="{ 'text-gray-900': !isDarkMode, 'text-gray-100': isDarkMode }">
+                                    {{ item.value }}
+                                </span>
 
-                        <!-- Kewarganegaraan -->
-                        <li class="flex items-center gap-4 p-4 rounded-lg transition-colors duration-200 backdrop-blur-sm"
-                            :class="{ 'bg-white/90': !isDarkMode, 'bg-gray-800/60': isDarkMode }">
-                            <i class="fa-solid fa-earth-asia text-blue-700 dark:text-blue-500 text-lg"></i>
-                            <p class="text-base" :class="{ 'text-gray-900': !isDarkMode, 'text-gray-100': isDarkMode }">
-                                <span class="font-semibold">Kewarganegaraan:</span> Indonesia
-                            </p>
-                        </li>
-
-                        <!-- Alamat -->
-                        <li class="flex items-center gap-4 p-4 rounded-lg transition-colors duration-200 backdrop-blur-sm"
-                            :class="{ 'bg-white/90': !isDarkMode, 'bg-gray-800/60': isDarkMode }">
-                            <i class="fa-solid fa-location-dot text-blue-700 dark:text-blue-500 text-lg"></i>
-                            <p class="text-base" :class="{ 'text-gray-900': !isDarkMode, 'text-gray-100': isDarkMode }">
-                                <span class="font-semibold">Alamat:</span> Jawa Tengah
-                            </p>
-                        </li>
-
-                        <!-- Email -->
-                        <li class="flex items-center gap-4 p-4 rounded-lg transition-colors duration-200 backdrop-blur-sm"
-                            :class="{ 'bg-white/90': !isDarkMode, 'bg-gray-800/60': isDarkMode }">
-                            <i class="fa-solid fa-envelope text-blue-700 dark:text-blue-500 text-lg"></i>
-                            <p class="text-base" :class="{ 'text-gray-900': !isDarkMode, 'text-gray-100': isDarkMode }">
-                                <span class="font-semibold">Email:</span>
-                                <a href="mailto:ariyoaziz.pratama@gmail.com"
-                                    class="text-blue-700 dark:text-blue-500 hover:underline transition-colors duration-300">
-                                    ariyoaziz.pratama@gmail.com
+                                <a v-else-if="item.type === 'link'" :href="`mailto:${item.value}`"
+                                    class="text-blue-700 dark:text-blue-500 hover:underline text-sm sm:text-base">
+                                    {{ item.value }}
                                 </a>
-                            </p>
+                            </div>
                         </li>
                     </ul>
+
+
+
                     <!-- Tombol Unduh CV -->
                     <div class="mt-8 text-center md:text-left" data-aos="fade-up" data-aos-delay="200">
                         <a href="/src/assets/pdf/Ariyo Aziz Pratama_CV.pdf" download class=" px-4 py-2 rounded-full text-sm font-semibold bg-gradient-to-b from-blue-500
@@ -188,91 +171,90 @@ window.addEventListener("resize", () => {
                     <div class="space-y-1 leading-relaxed text-base text-justify"
                         :class="{ 'text-gray-700': !isDarkMode, 'text-gray-300': isDarkMode }">
                         <p>
-                            Saya adalah seorang mahasiswa yang sedang menempuh pendidikan di Program Studi Ilmu
-                            Komputer, Fakultas Sains dan Teknologi, Universitas Teknologi Yogyakarta. Dengan dasar
-                            pengetahuan yang kuat di bidang teknologi, saya terus mengasah keterampilan dalam
-                            pemrograman dan pemecahan masalah.
+                            Saya adalah mahasiswa semester 7 Program Studi Informatika di Fakultas Sains dan Teknologi,
+                            Universitas Teknologi Yogyakarta. Dengan minat besar di bidang teknologi, saya terus
+                            mengembangkan keterampilan di bidang pemrograman, desain sistem, dan pemecahan masalah.
                         </p>
                         <p>
-                            Sepanjang perjalanan akademik, saya berkomitmen untuk terus belajar dan meningkatkan
-                            kompetensi di bidang teknologi informasi. Saya percaya bahwa pembelajaran berkelanjutan
-                            merupakan kunci untuk menghadapi tantangan di industri teknologi yang terus berkembang.
+                            Sepanjang perjalanan akademik, saya aktif belajar dan mengeksplorasi berbagai topik dalam
+                            dunia IT, mulai dari pengembangan web hingga penerapan teknologi Internet of Things (IoT).
+                            Bagi saya, belajar bukan hanya kewajiban, tetapi juga proses berkelanjutan untuk menghadapi
+                            perkembangan industri yang begitu dinamis.
                         </p>
                         <p>
-                            Ke depan, saya berharap dapat terus bertumbuh sebagai profesional di dunia IT dan memberikan
-                            kontribusi nyata bagi industri. Jangan ragu untuk terhubung dan berbagi ide!
+                            Ke depan, saya ingin terus bertumbuh sebagai profesional di dunia teknologi dan
+                            berkontribusi melalui solusi nyata. Jangan ragu untuk terhubung dan berbagi ide, saya selalu
+                            terbuka untuk kolaborasi!
                         </p>
+
                     </div>
                 </div>
 
             </div>
 
             <div class="mb-12" data-aos="fade-up" data-aos-delay="400">
-                <h3 class="text-2xl font-bold mb-8 text-center transition-colors duration-300"
-                    :class="{ 'text-gray-800': !isDarkMode, 'text-gray-100': isDarkMode }">
-                    Pendidikan
-                </h3>
-
+                <div class="mt-20 mb-10 text-center">
+                    <h3 class="text-2xl sm:text-3xl font-bold mb-4 transition-colors duration-300"
+                        :class="{ 'text-gray-800': !isDarkMode, 'text-gray-100': isDarkMode }">
+                        Pendidikan
+                    </h3>
+                </div>
                 <ul class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                    <!-- UTY -->
-                    <li class="p-5 rounded-xl shadow-sm transition-all duration-300 transform hover:scale-[1.02] hover:shadow-lg backdrop-blur-sm border hover:border-primary"
+                    <!-- Card Pendidikan -->
+                    <li v-for="edu in educationList" :key="edu.school"
+                        class="flex flex-col justify-center h-full w-full max-w-md p-6 rounded-2xl border shadow-sm backdrop-blur-sm transition-all duration-300 transform hover:scale-[1.02] hover:shadow-lg hover:border-primary"
                         :class="{
                             'bg-white/60 border-gray-200 text-gray-900 ring-1 ring-inset ring-white/40 hover:bg-white/80': !isDarkMode,
                             'bg-gray-800/50 border-gray-700 text-gray-100 hover:bg-gray-800/70': isDarkMode
                         }">
 
-                        <p class="font-semibold text-lg mb-1"
-                            :class="{ 'text-gray-900': !isDarkMode, 'text-gray-100': isDarkMode }">
-                            Universitas Teknologi Yogyakarta
-                        </p>
-                        <p class="text-sm mb-2" :class="{ 'text-gray-700': !isDarkMode, 'text-gray-300': isDarkMode }">
-                            Program Sarjana – Informatika
-                        </p>
-
-                        <p class="text-sm mt-3" :class="{ 'text-gray-600': !isDarkMode, 'text-gray-400': isDarkMode }">
-                            Mendalami pengembangan aplikasi web dan mobile, rekayasa perangkat lunak, serta pemanfaatan
-                            basis data untuk solusi teknologi berbasis software.
-                        </p>
-
-                        <p class="text-xs mt-3 italic"
-                            :class="{ 'text-gray-500': !isDarkMode, 'text-gray-400': isDarkMode }">
-                            September 2022 – Sekarang
-                        </p>
-                    </li>
-
-                    <!-- SMK Ma'arif 4 Kebumen -->
-                    <li class="p-5 rounded-xl shadow-sm transition-all duration-300 transform hover:scale-[1.02] hover:shadow-lg backdrop-blur-sm border hover:border-primary"
-                        :class="{
-                            'bg-white/60 border-gray-200 text-gray-900 ring-1 ring-inset ring-white/40 hover:bg-white/80': !isDarkMode,
-                            'bg-gray-800/50 border-gray-700 text-gray-100 hover:bg-gray-800/70': isDarkMode
+                        <!-- Nama Sekolah -->
+                        <h3 class="font-semibold text-lg mb-1" :class="{
+                            'text-gray-900': !isDarkMode,
+                            'text-gray-100': isDarkMode
                         }">
+                            {{ edu.school }}
+                        </h3>
 
-                        <p class="font-semibold text-lg mb-1"
-                            :class="{ 'text-gray-900': !isDarkMode, 'text-gray-100': isDarkMode }">
-                            SMK Ma’arif 4 Kebumen
-                        </p>
-                        <p class="text-sm mb-2" :class="{ 'text-gray-700': !isDarkMode, 'text-gray-300': isDarkMode }">
-                            Teknik Audio Video
-                        </p>
-                        <p class="text-sm mt-3" :class="{ 'text-gray-600': !isDarkMode, 'text-gray-400': isDarkMode }">
-                            Memperoleh dasar-dasar teknik elektronika, mikrokontroler, dan sistem perangkat audio-video,
-                            sebagai fondasi awal dalam dunia teknologi dan rekayasa perangkat.
+                        <!-- Jurusan -->
+                        <p class="text-sm mb-2" :class="{
+                            'text-gray-700': !isDarkMode,
+                            'text-gray-300': isDarkMode
+                        }">
+                            {{ edu.major }}
                         </p>
 
-                        <p class="text-xs italic mt-3"
-                            :class="{ 'text-gray-500': !isDarkMode, 'text-gray-400': isDarkMode }">
-                            Juli 2019 – Juni 2021
+                        <!-- Deskripsi -->
+                        <p class="text-sm mt-3 leading-relaxed text-justify" :class="{
+                            'text-gray-600': !isDarkMode,
+                            'text-gray-400': isDarkMode
+                        }">
+                            {{ edu.description }}
+                        </p>
+
+                        <!-- Periode -->
+                        <p class="text-xs mt-3 italic" :class="{
+                            'text-gray-500': !isDarkMode,
+                            'text-gray-400': isDarkMode
+                        }">
+                            {{ edu.period }}
                         </p>
                     </li>
                 </ul>
+
+
             </div>
 
 
             <div class="mb-12" data-aos="fade-up" data-aos-delay="700">
-                <h3 class="text-2xl font-bold mb-8 text-center transition-colors duration-300"
-                    :class="{ 'text-gray-800': !isDarkMode, 'text-gray-100': isDarkMode }">
-                    Sertifikat
-                </h3>
+                <div class="mt-20 mb-10 text-center">
+                    <h3 class="text-2xl sm:text-3xl font-bold mb-4 transition-colors duration-300"
+                        :class="{ 'text-gray-800': !isDarkMode, 'text-gray-100': isDarkMode }">
+                        Sertifikat
+                    </h3>
+
+                </div>
+
 
                 <!-- Scrollable Section -->
                 <div class="relative">
@@ -320,12 +302,13 @@ window.addEventListener("resize", () => {
                 </div>
             </div>
 
-            <div class="mb-1" data-aos="fade-up" data-aos-delay="700">
-                <h3 class="text-2xl font-bold mb-8 text-center transition-colors duration-300"
-                    :class="{ 'text-gray-800': !isDarkMode, 'text-gray-100': isDarkMode }">
-                    Pengalaman
-                </h3>
-
+            <div class="mb-12" data-aos="fade-up" data-aos-delay="700">
+                <div class="mt-20 mb-10 text-center">
+                    <h3 class="text-2xl sm:text-3xl font-bold mb-4 transition-colors duration-300"
+                        :class="{ 'text-gray-800': !isDarkMode, 'text-gray-100': isDarkMode }">
+                        Pengalaman
+                    </h3>
+                </div>
                 <ul class="grid grid-cols-1 md:grid-cols-2 gap-6">
                     <li v-for="(item, index) in pengalamanList" :key="index"
                         class="p-5 rounded-xl shadow-sm transition-all duration-300 transform hover:scale-[1.02] hover:shadow-lg backdrop-blur-sm border hover:border-primary"
@@ -355,7 +338,42 @@ window.addEventListener("resize", () => {
                     </li>
                 </ul>
             </div>
+            <div class="mb-12" data-aos="fade-up" data-aos-delay="700">
+                <h4 class="text-xl font-semibold mb-6 text-center transition-colors duration-300"
+                    :class="{ 'text-gray-800': !isDarkMode, 'text-gray-100': isDarkMode }">Tools & Technologies</h4>
+            </div>
+            <div class="mb-12" data-aos="fade-up" data-aos-delay="300">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-6">
+                    <div v-for="(categoryData, index) in techLogos" :key="categoryData.category"
+                        class="p-5 rounded-xl shadow-sm transition-all duration-300 backdrop-blur-sm border" :class="{
+                            // Light mode - lebih glossy
+                            'bg-white/60 border-gray-200 text-gray-900 ring-1 ring-inset ring-white/40': !isDarkMode,
+                            // Dark mode - tetap lembut
+                            'bg-gray-800/50 border-gray-700 text-gray-100': isDarkMode
+                        }">
 
+                        <h5 class="text-lg font-medium mb-4" :class="{
+                            'text-gray-800': !isDarkMode,
+                            'text-gray-200': isDarkMode,
+                        }">
+                            {{ categoryData.category }}
+                        </h5>
+
+                        <div class="flex flex-wrap justify-start items-center gap-4 mb-0">
+                            <div v-for="tech in categoryData.logos" :key="tech.name"
+                                class="p-3 rounded-lg transition-all duration-300 flex items-center group gap-3 border"
+                                :class="{ 'border-gray-700': !isDarkMode, 'border-gray-600': isDarkMode }">
+                                <img :src="tech.src" :alt="tech.name + ' logo'"
+                                    class="w-10 h-10 object-contain hover:scale-110 hover:rotate-6 transition-transform duration-300" />
+                                <p class="text-sm font-semibold group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors"
+                                    :class="{ 'text-black': !isDarkMode, 'text-gray-300': isDarkMode }">
+                                    {{ tech.name }}
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     </section>
 </template>

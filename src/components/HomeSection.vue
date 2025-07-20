@@ -123,7 +123,8 @@ onUnmounted(() => {
 
             <div class="mt-0 flex flex-col items-center mb-10" data-aos="fade-up" data-aos-delay="800">
                 <p class="text-[0.6rem] sm:text-sm text-gray-700 dark:text-gray-400 text-center max-w-xs">
-                    Dark mode untuk yang chill, light mode buat yang fresh. Kamu tim mana?
+                    Dark mode untuk nuansa tenang, light mode untuk energi cerah.
+                    Kamu tim yang mana?
                 </p>
                 <button @click="emit('toggle-dark-mode')"
                     :class="`w-10 h-10 rounded-full flex items-center justify-center mt-4 ${isDarkMode ? 'bg-white text-black' : 'bg-black text-white'}`"
@@ -135,7 +136,7 @@ onUnmounted(() => {
             <div class="absolute bottom-4 animate-bounce" data-aos="fade-up" data-aos-delay="900">
                 <button @click="goToNextPage"
                     class="px-6 py-3 rounded-full text-sm font-semibold text-gray-900 dark:text-gray-500 hover:text-gray-600 dark:hover:text-gray-300">
-                    Klik untuk Melanjutkan &darr;
+                    Scroll untuk lanjut menjelajahi &darr;
                 </button>
             </div>
         </div>

@@ -1,42 +1,48 @@
 <script setup>
-import { inject, ref } from 'vue'; // <-- Tambahkan 'ref' di sini
+import { ref } from 'vue';
 
-const isDarkMode = inject('isDarkMode', ref(false));
+// Deteksi dark mode secara langsung dari localStorage
+const isDarkMode = ref(false);
+
+if (typeof window !== 'undefined') {
+    const storedTheme = localStorage.getItem('theme');
+    isDarkMode.value = storedTheme === 'dark';
+}
 
 const props = defineProps({
     isLoading: {
         type: Boolean,
-        required: true
-    }
+        required: true,
+    },
 });
 </script>
 
 <template>
     <Transition name="fade-overlay">
-        <div v-if="isLoading" v-cloak class="fixed inset-0 z-[999] flex flex-col items-center justify-center
-             bg-white dark:bg-gray-900 transition-opacity duration-700">
-            <div class="relative w-20 h-20" data-aos="zoom-in">
-                <div class="absolute inset-0 rounded-full animate-spin-slow"
-                    :class="{ 'border-t-4 border-b-4 border-blue-500': !isDarkMode, 'border-t-4 border-b-4 border-purple-400': isDarkMode }"
-                    style="border-style: solid; border-color: transparent;">
-                    <div class="absolute inset-0 rounded-full"
-                        :class="{ 'bg-gradient-to-br from-blue-500 to-purple-500': !isDarkMode, 'bg-gradient-to-br from-purple-400 to-pink-400': isDarkMode }"
-                        style="mask: url(#gradient-mask); -webkit-mask: url(#gradient-mask);">
-                    </div>
-                    <svg class="absolute inset-0 w-full h-full">
-                        <defs>
-                            <mask id="gradient-mask">
-                                <circle cx="50%" cy="50%" r="40%" fill="white" stroke="black" stroke-width="8" />
-                            </mask>
-                        </defs>
-                    </svg>
-                </div>
-                <div class="absolute inset-2 rounded-full bg-white dark:bg-gray-900"></div>
+        <div v-if="isLoading" v-cloak
+            class="fixed inset-0 z-[999] flex flex-col items-center justify-center transition-opacity duration-700 bg-white dark:bg-gray-900">
+            <!-- Spinner -->
+            <div class="relative w-24 h-24 animate-pulse-slow" data-aos="zoom-in">
+                <!-- Outer rotating border -->
+                <div class="absolute inset-0 rounded-full border-[6px] animate-spin-slow" :class="{
+                    'border-t-blue-500 border-b-blue-500 border-l-transparent border-r-transparent': !isDarkMode,
+                    'border-t-purple-400 border-b-purple-400 border-l-transparent border-r-transparent': isDarkMode,
+                }"></div>
+
+                <!-- Inner Circle -->
+                <div class="absolute inset-3 rounded-full bg-gradient-to-br shadow-inner" :class="{
+                    'from-white to-gray-100': !isDarkMode,
+                    'from-gray-800 to-gray-900': isDarkMode,
+                }"></div>
             </div>
-            <p class="mt-8 text-xl font-bold text-gray-800 dark:text-gray-200" data-aos="fade-up" data-aos-delay="500">
-                Loading<span class="animate-dots">.</span><span class="animate-dots"
-                    style="animation-delay: 0.2s;">.</span><span class="animate-dots"
-                    style="animation-delay: 0.4s;">.</span>
+
+            <!-- Loading Text -->
+            <p class="mt-8 text-lg sm:text-xl font-semibold text-gray-800 dark:text-gray-200 tracking-wide flex gap-1"
+                data-aos="fade-up" data-aos-delay="500">
+                <span>Memuat</span>
+                <span class="animate-dots">.</span>
+                <span class="animate-dots delay-[0.2s]">.</span>
+                <span class="animate-dots delay-[0.4s]">.</span>
             </p>
         </div>
     </Transition>
@@ -54,17 +60,11 @@ const props = defineProps({
 }
 
 .animate-spin-slow {
-    animation: spin-slow 2s linear infinite;
+    animation: spin-slow 1.8s linear infinite;
 }
 
-.fade-overlay-enter-active,
-.fade-overlay-leave-active {
-    transition: opacity 0.7s ease;
-}
-
-.fade-overlay-enter-from,
-.fade-overlay-leave-to {
-    opacity: 0;
+.animate-pulse-slow {
+    animation: pulse 3s ease-in-out infinite;
 }
 
 @keyframes dots {
@@ -84,7 +84,25 @@ const props = defineProps({
 }
 
 .animate-dots {
-    animation: dots 1s infinite steps(1, end);
+    animation: dots 1.2s infinite steps(1, end);
+    opacity: 0;
+}
+
+.animate-dots.delay-\[0\.2s\] {
+    animation-delay: 0.2s;
+}
+
+.animate-dots.delay-\[0\.4s\] {
+    animation-delay: 0.4s;
+}
+
+.fade-overlay-enter-active,
+.fade-overlay-leave-active {
+    transition: opacity 0.7s ease;
+}
+
+.fade-overlay-enter-from,
+.fade-overlay-leave-to {
     opacity: 0;
 }
 

@@ -24,10 +24,9 @@ const props = defineProps({
 
                 <p class="text-center leading-relaxed max-w-3xl mx-auto"
                     :class="{ 'text-gray-800': !isDarkMode, 'text-gray-100': isDarkMode }">
-                    Saya selalu terbuka untuk peluang kolaborasi, proyek menarik, atau sekadar obrolan tentang desain
-                    dan
-                    teknologi.
-                    Jangan ragu untuk menghubungi saya!
+                    Saya selalu terbuka untuk berbagai kesempatan, entah itu kolaborasi proyek, freelance desain,
+                    diskusi seputar UI/UX, atau sekadar ngobrol santai tentang teknologi dan dunia kreatif.
+                    Jangan sungkan, kirim saja pesan kapan pun!
                 </p>
             </div>
         </div>
@@ -39,13 +38,13 @@ const props = defineProps({
                     'bg-white/60 border-gray-200 text-gray-900 ring-1 ring-inset ring-white/40': !isDarkMode,
                     'bg-gray-800/50 border-gray-700 text-gray-100': isDarkMode
                 }">
-                    <h3 class="text-2xl font-bold mb-6">Contact Form</h3>
+                    <h3 class="text-2xl font-bold mb-6">Formulir Kontak</h3>
                     <form class="space-y-5 text-left">
                         <div>
                             <label for="name" class="block text-sm font-medium mb-1"
                                 :class="{ 'text-gray-700': !isDarkMode, 'text-gray-300': isDarkMode }">Nama
                                 Lengkap</label>
-                            <input type="text" id="name" name="name" placeholder="Nama Anda"
+                            <input type="text" id="name" name="name" placeholder="Tuliskan nama kamu"
                                 class="w-full p-3 rounded-md border focus:ring focus:ring-blue-400 transition" :class="{
                                     'bg-white text-gray-900 border-gray-300': !isDarkMode,
                                     'bg-gray-700 text-white border-gray-600': isDarkMode
@@ -55,7 +54,7 @@ const props = defineProps({
                         <div>
                             <label for="email" class="block text-sm font-medium mb-1"
                                 :class="{ 'text-gray-700': !isDarkMode, 'text-gray-300': isDarkMode }">Email</label>
-                            <input type="email" id="email" name="email" placeholder="email@example.com"
+                            <input type="email" id="email" name="email" placeholder="emailkamu@example.com"
                                 class="w-full p-3 rounded-md border focus:ring focus:ring-blue-400 transition" :class="{
                                     'bg-white text-gray-900 border-gray-300': !isDarkMode,
                                     'bg-gray-700 text-white border-gray-600': isDarkMode
@@ -64,9 +63,9 @@ const props = defineProps({
 
                         <div>
                             <label for="message" class="block text-sm font-medium mb-1"
-                                :class="{ 'text-gray-700': !isDarkMode, 'text-gray-300': isDarkMode }">Pesan
-                                Anda</label>
-                            <textarea id="message" name="message" rows="5" placeholder="Tulis pesan Anda..."
+                                :class="{ 'text-gray-700': !isDarkMode, 'text-gray-300': isDarkMode }">Pesan</label>
+                            <textarea id="message" name="message" rows="5"
+                                placeholder="Tuliskan pesan, pertanyaan, atau ide kamu di sini..."
                                 class="w-full p-3 rounded-md border focus:ring focus:ring-blue-400 transition" :class="{
                                     'bg-white text-gray-900 border-gray-300': !isDarkMode,
                                     'bg-gray-700 text-white border-gray-600': isDarkMode
@@ -93,12 +92,14 @@ const props = defineProps({
                         'bg-white/60 border-gray-200 text-gray-900 ring-1 ring-inset ring-white/40': !isDarkMode,
                         'bg-gray-800/50 border-gray-700 text-gray-100': isDarkMode
                     }">
-                    <h3 class="text-2xl font-bold mb-2">Support My Work</h3>
-                    <p class="text-sm mb-4 max-w-xs leading-relaxed" :class="{
+                    <h3 class="text-2xl font-bold mb-2">☕Dukung Karya Saya</h3>
+                    <p class="text-sm mb-4 max-w-xs text-center leading-relaxed" :class="{
                         'text-gray-700': !isDarkMode,
                         'text-gray-300': isDarkMode
                     }">
-                        Suka dengan portofolio saya? Yuk dukung saya dengan beli kopi!
+                        Suka dengan karya-karya saya?
+                        Kamu bisa bantu saya tetap berkarya dengan mentraktir saya secangkir kopi. Dukungan kecilmu
+                        sangat berarti! 🙌
                     </p>
                     <a href="https://ko-fi.com/yourprofile" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center px-4 py-2 mt-2 text-sm rounded-full font-semibold
             bg-gradient-to-b from-blue-500 to-blue-700 text-white

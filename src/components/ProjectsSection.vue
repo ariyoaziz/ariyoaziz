@@ -69,9 +69,16 @@ const getLabelClass = (label) => {
         <!-- Main Content Wrapper for the section -->
         <div class="w-full max-w-6xl px-4 relative z-10">
             <div class="mb-12" data-aos="fade-up" data-aos-delay="700">
-                <h2 class="text-4xl sm:text-5xl font-extrabold mb-12 text-center transition-colors duration-300"
-                    :class="{ 'text-gray-900': !isDarkMode, 'text-gray-100': isDarkMode }">My Projects</h2>
-
+                <h2 class="text-4xl sm:text-5xl font-extrabold mb-4 text-center transition-colors duration-300"
+                    :class="{ 'text-gray-900': !isDarkMode, 'text-gray-100': isDarkMode }">
+                    Apa yang Pernah Saya Buat?
+                </h2>
+                <p
+                    class="text-base sm:text-lg text-center max-w-2xl mx-auto mb-12 text-gray-600 dark:text-gray-400 transition-colors duration-300">
+                    Kumpulan karya terbaik saya, mulai dari aplikasi, desain antarmuka, hingga proyek fotografi dan
+                    tugas
+                    akhir.
+                </p>
                 <!-- Filter Buttons: Bagian ini yang memungkinkan scroll horizontal -->
                 <div class="flex flex-nowrap overflow-x-auto gap-3 mb-12 justify-center">
                     <span v-for="label in filterLabels" :key="label.name" @click="filterProjects(label.name)"
@@ -84,40 +91,46 @@ const getLabelClass = (label) => {
                 <!-- Project Cards -->
                 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 w-full flex-grow">
                     <div v-for="(project, index) in paginatedProjects" :key="project.title"
-                        class="p-6 rounded-xl shadow-sm transition-all duration-300 backdrop-blur-sm flex flex-col text-center border hover:scale-[1.02] hover:shadow-lg  hover:border-primary"
+                        class="p-6 rounded-2xl border shadow-sm transition-all duration-300 backdrop-blur-sm flex flex-col text-center group hover:scale-[1.02] hover:shadow-lg"
                         :class="{
-                            'bg-white/60 border-gray-200 text-gray-900 ring-1 ring-inset ring-white/40': !isDarkMode,
+                            'bg-white/70 border-gray-200 text-gray-900 ring-1 ring-inset ring-white/40': !isDarkMode,
                             'bg-gray-800/50 border-gray-700 text-gray-100': isDarkMode
                         }">
+                        <!-- Image -->
                         <img :src="project.imageSrc" :alt="`${project.title} screenshot`"
-                            class="w-full h-40 object-cover rounded-lg mb-4 border border-gray-200 dark:border-gray-700" />
+                            class="w-full h-44 object-cover rounded-xl mb-4 border border-gray-200 dark:border-gray-700 shadow-sm" />
 
-                        <h3 class="text-xl font-bold mb-3 transition-colors duration-300"
-                            :class="isDarkMode ? 'text-gray-100' : 'text-gray-900'">
+                        <!-- Title -->
+                        <h3 class="text-xl font-semibold mb-2 leading-tight transition-colors duration-300">
                             {{ project.title }}
                         </h3>
 
-                        <p class="text-sm mb-5 transition-colors duration-300"
+                        <p class="text-sm mb-4 leading-relaxed text-justify transition-colors duration-300"
                             :class="isDarkMode ? 'text-gray-300' : 'text-gray-700'">
                             {{ project.description }}
                         </p>
 
-                        <div class="flex flex-wrap justify-center gap-2 mb-4 mt-auto">
-                            <span v-for="tag in project.techTags" :key="`${project.title}-${tag}`"
-                                class="px-3 py-1 rounded-full text-xs font-medium bg-blue-100 text-blue-800 dark:bg-blue-800 dark:text-blue-100">
+                        <!-- Tech Tags -->
+                        <div class="flex flex-wrap justify-center gap-2 mb-4">
+                            <span v-for="tag in project.techTags" :key="`${project.title}-${tag}`" class="px-3 py-1 rounded-full text-xs font-medium
+               bg-blue-100 text-blue-800
+               dark:bg-blue-900 dark:text-blue-100
+               transition-all duration-200">
                                 {{ tag }}
                             </span>
                         </div>
 
-                        <a :href="project.projectUrl" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center px-4 py-2 mt-auto text-sm rounded-full font-semibold
-                     bg-gradient-to-b from-blue-500 to-blue-700 text-white
-                     hover:from-blue-600 hover:to-blue-800
-                     dark:from-blue-600 dark:to-blue-800 dark:hover:from-blue-700 dark:hover:to-blue-900
-                     transition-all duration-300 shadow-md">
+                        <!-- View Button -->
+                        <a :href="project.projectUrl" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center px-4 py-2 text-sm rounded-full font-semibold
+             bg-gradient-to-b from-blue-500 to-blue-700 text-white
+             hover:from-blue-600 hover:to-blue-800
+             dark:from-blue-600 dark:to-blue-800 dark:hover:from-blue-700 dark:hover:to-blue-900
+             transition-all duration-300 shadow-md mt-auto">
                             View Details &rarr;
                         </a>
                     </div>
                 </div>
+
 
                 <!-- Pagination -->
                 <div v-if="totalPages > 1" class="flex justify-center mt-12 gap-2">

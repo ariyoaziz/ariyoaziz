@@ -1,141 +1,169 @@
 export const projectsData = [
-
     {
         title: "Vitacal App – Aplikasi Kesehatan",
-        description: "Aplikasi mobile yang menghitung kebutuhan kalori dan memberikan rekomendasi berdasarkan data pengguna menggunakan algoritma Mifflin-St Jeor. Proyek ini dikembangkan sebagai bagian dari Tugas Akhir, menggunakan Flutter untuk frontend, Flask untuk backend, serta integrasi OTP melalui Fonnte API. (Coming Soon)",
-        imageSrc: "/images/projects/vitacal-app.png", // Ganti sesuai lokasi gambar
+        description:
+            "Aplikasi mobile untuk menghitung kebutuhan kalori harian dan memberikan rekomendasi nutrisi berdasarkan data pengguna. Dikembangkan menggunakan Flutter (frontend) dan Flask (backend), dengan integrasi OTP melalui Fonnte API. Dirancang untuk tugas akhir dengan pendekatan algoritma Mifflin-St Jeor. (Coming Soon)",
+        imageSrc: "/images/projects/vitacal-app.png",
         techTags: [
             "Mobile Application",
             "Flutter",
             "Flask",
             "Fonnte API",
-            "Backend",
             "Health App",
-            "Tugas Akhir",
             "Mifflin Algorithm",
             "UI/UX Design",
-            "Figma"
+            "Figma",
+            "Tugas Akhir"
         ],
         projectUrl: "https://github.com/ariyoaziz/vitacal_app"
     },
     {
-        title: "Pameran Besar – Semesta Kecil",
-        description: "Partisipasi dalam pameran fotografi bertajuk 'Semesta Kecil' pada tahun 2025, menampilkan karya visual bertema narasi kehidupan dan ruang pribadi.",
-        imageSrc: "/images/projects/semesta-kecil.png", // Ganti dengan gambar jika ada
+        title: "Pameran Foto – Semesta Kecil",
+        description:
+            "Karya fotografi bertema narasi kehidupan dan ruang pribadi yang dipamerkan dalam event 'Semesta Kecil' tahun 2025.",
+        imageSrc: "/images/projects/semesta-kecil.png",
         techTags: ["Photography", "Event", "Exhibition"],
         projectUrl: "#"
     },
     {
         title: "Website Pribadi v2",
-        description: "Versi kedua dari website portofolio pribadi dengan desain lebih modern dan interaktif, dibangun menggunakan Vue 3, Vite, dan Tailwind CSS.",
-        imageSrc: "/images/projects/profil-v2.png", // Pastikan file ini tersedia di direktori gambar proyek
-        techTags: ["Frontend", "Vue.js", "Vite", "Tailwind CSS", "Responsive Design", "Personal Website"],
+        description:
+            "Versi terbaru dari portofolio pribadi yang lebih modern dan interaktif. Dibangun dengan Vue 3, Vite, dan Tailwind CSS, serta mendukung dark mode dan sistem filter proyek.",
+        imageSrc: "/images/projects/profil-v2.png",
+        techTags: [
+            "Frontend",
+            "Vue.js",
+            "Vite",
+            "Tailwind CSS",
+            "Responsive Design",
+            "Personal Website"
+        ],
         projectUrl: "https://github.com/ariyoaziz/ariyoaziz"
     },
     {
         title: "Website Pribadi v1",
-        description: "Versi pertama dari website portofolio pribadi yang dibangun menggunakan React, menampilkan informasi dasar tentang diri saya.",
-        imageSrc: "/images/projects/profil-v1.png", // Pastikan file gambar ini tersedia
+        description:
+            "Versi awal website portofolio pribadi yang dibangun menggunakan React. Fokus pada penyampaian informasi dasar dan eksplorasi komponen frontend.",
+        imageSrc: "/images/projects/profil-v1.png",
         techTags: ["Frontend", "React", "JavaScript", "Personal Website"],
         projectUrl: "https://github.com/ariyoaziz/profil"
     },
     {
         title: "EcoFood – Aplikasi Pemesanan Makanan",
-        description: "Aplikasi mobile pemesanan makanan dengan fitur OTP menggunakan Fonnte API dan pembayaran terintegrasi Midtrans. Frontend dikembangkan menggunakan Flutter, sementara backend dibangun dengan Flask.",
+        description:
+            "Aplikasi mobile untuk pemesanan makanan, dengan fitur OTP (Fonnte API) dan pembayaran Midtrans. Frontend dibuat dengan Flutter, backend menggunakan Flask.",
         imageSrc: "../src/assets/images/projects/ecofood.png",
-        techTags: ["Mobile Application", "Flutter", "Flask", "Backend", "Fonnte API", "Midtrans", "API Integration", "UI/UX Design"],
-        projectUrl: "https://github.com/ariyoaziz/ecofood",
+        techTags: [
+            "Mobile Application",
+            "Flutter",
+            "Flask",
+            "Fonnte API",
+            "Midtrans",
+            "API Integration",
+            "UI/UX Design"
+        ],
+        projectUrl: "https://github.com/ariyoaziz/ecofood"
     },
     {
-        title: "CuacaQu – Aplikasi Pendeteksi Cuaca",
-        description: "Aplikasi mobile berbasis Flutter yang menampilkan informasi cuaca terkini dengan memanfaatkan API dari OpenWeather. Menggunakan arsitektur BLoC untuk pengelolaan state yang efisien.",
+        title: "CuacaQu – Aplikasi Info Cuaca",
+        description:
+            "Aplikasi Flutter yang menampilkan prakiraan cuaca real-time dengan API dari OpenWeather. Menggunakan arsitektur BLoC untuk manajemen state.",
         imageSrc: "../src/assets/images/projects/cuacaqu.png",
         techTags: ["Mobile Application", "Flutter", "OpenWeather API", "BLoC", "UI/UX Design"],
         projectUrl: "https://github.com/ariyoaziz/cuacaqu"
     },
     {
-        title: "CineHub – Aplikasi Pemesanan Tiket Bioskop",
-        description: "Aplikasi mobile untuk pemesanan tiket bioskop dengan fitur daftar film, detail jadwal, dan pemesanan langsung. Dibangun menggunakan Flutter sebagai proyek pribadi.",
+        title: "CineHub – Tiket Bioskop Online",
+        description:
+            "Aplikasi pemesanan tiket bioskop dengan fitur daftar film, jadwal tayang, dan pemesanan langsung. Dibuat menggunakan Flutter sebagai proyek pribadi.",
         imageSrc: "../src/assets/images/projects/cinehub.png",
         techTags: ["Mobile Application", "Flutter", "Dart", "UI/UX Design"],
         projectUrl: "https://github.com/ariyoaziz/cinehub"
     },
     {
         title: "Mini Game dengan React",
-        description: "Proyek mini game sederhana berbasis React, dikembangkan saat mengikuti pelatihan React. Fokus pada pemahaman dasar komponen, state, dan event handling.",
+        description:
+            "Proyek mini game interaktif menggunakan React. Dibuat untuk memperdalam pemahaman dasar komponen, state, dan event handling.",
         imageSrc: "../src/assets/images/projects/react_game.png",
         techTags: ["Frontend", "React", "JavaScript"],
         projectUrl: "https://github.com/ariyoaziz/Rect_game"
     },
     {
-        title: "Aplikasi Login Sederhana",
-        description: "Aplikasi mobile sederhana dengan fitur login menggunakan Flutter. Dikembangkan secara individu untuk memperdalam pemahaman autentikasi dasar di platform mobile.",
+        title: "Aplikasi Login Flutter",
+        description:
+            "Aplikasi login sederhana berbasis Flutter untuk latihan autentikasi. Dirancang secara individu untuk memperkuat pemahaman dasar.",
         imageSrc: "../src/assets/images/projects/login_sederhana.png",
-        techTags: ["Mobile Application", "Flutter", "Dart",],
+        techTags: ["Mobile Application", "Flutter", "Dart"],
         projectUrl: "https://github.com/ariyoaziz/aplikasi_login-sederhana-"
     },
     {
         title: "Kumpulan Dasar Flutter",
-        description: "Repositori ini berisi kumpulan praktik dasar Flutter mulai dari widget, layout, navigasi, hingga pengelolaan state. Dibuat untuk memperkuat pemahaman fundamental Flutter.",
+        description:
+            "Repositori latihan Flutter yang mencakup berbagai topik dasar seperti widget, layout, navigasi, dan state management.",
         imageSrc: "../src/assets/images/projects/dasar_flutter.png",
         techTags: ["Mobile Application", "Flutter", "Dart", "Layout", "Widget"],
         projectUrl: "https://github.com/ariyoaziz/flutter"
     },
-
     {
         title: "Pemahaman Layout Flutter",
-        description: "Proyek individu yang bertujuan untuk memahami struktur dan penggunaan layout di Flutter. Proyek ini dibuat pada semester 5 sebagai bagian dari latihan pengembangan aplikasi mobile.",
+        description:
+            "Proyek latihan untuk memahami struktur layout di Flutter. Dikerjakan saat semester 5 untuk mendalami desain antarmuka.",
         imageSrc: "../src/assets/images/projects/layout_flutter.png",
         techTags: ["Mobile Application", "Flutter", "UI/UX Design"],
         projectUrl: "https://github.com/ariyoaziz/layout_apk"
     },
-
     {
         title: "Dasar Framework Flutter",
-        description: "Aplikasi mobile sederhana yang dikembangkan secara individu untuk memahami dasar-dasar framework Flutter. Proyek ini dibuat sebagai tugas mata kuliah Dasar Framework pada semester 5.",
+        description:
+            "Aplikasi latihan sederhana untuk memahami konsep dasar framework Flutter. Disusun dalam mata kuliah Dasar Framework (semester 5).",
         imageSrc: "../src/assets/images/projects/dasar_flutter.png",
         techTags: ["Mobile Application", "Frontend", "Flutter", "Dart"],
         projectUrl: "https://github.com/ariyoaziz/dasar_framework_flutter"
     },
     {
-        title: "Aplikasi CLI Pemutar Musik Sederhana",
-        description: "Aplikasi pemutar musik sederhana berbasis command-line interface (CLI) yang dikembangkan menggunakan Python. Proyek ini merupakan tugas kelompok untuk mata kuliah Pemrograman Berbasis Objek pada semester 3.",
+        title: "CLI Pemutar Musik Sederhana",
+        description:
+            "Aplikasi pemutar musik berbasis CLI menggunakan Python. Proyek kelompok pada mata kuliah Pemrograman Berbasis Objek (semester 3).",
         imageSrc: "../src/assets/images/projects/oop_musiksederhana.png",
         techTags: ["Backend", "Python", "CLI", "Object-Oriented Programming"],
         projectUrl: "https://github.com/ariyoaziz/oop-pemutar-musik-sederhana"
     },
     {
-        title: "Website Peminjaman Uang",
-        description: "Aplikasi web untuk sistem peminjaman uang berbasis Flask dan MySQL. Proyek ini dikembangkan secara kelompok sebagai tugas mata kuliah Pemrograman Web Praktik pada semester 3.",
+        title: "Sistem Peminjaman Uang Web",
+        description:
+            "Aplikasi web peminjaman uang berbasis Flask dan MySQL. Dibuat secara kelompok dalam mata kuliah Pemrograman Web Praktik (semester 3).",
         imageSrc: "../src/assets/images/projects/web_peminjaman.png",
         techTags: ["UI/UX Design", "Figma", "Frontend", "Backend", "Flask", "Python", "MySQL"],
         projectUrl: "https://github.com/ariyoaziz/web_peminjaman"
     },
     {
-        title: "Pameran Besar – Tanpa Batas",
-        description: "Karya fotografi ditampilkan dalam pameran 'Tanpa Batas' pada tahun 2024, mengeksplorasi batas imajinasi dalam ruang visual kolektif.",
-        imageSrc: "/images/projects/tanpa-batas.png", // Ganti dengan gambar jika ada
+        title: "Pameran Foto – Tanpa Batas",
+        description:
+            "Karya fotografi bertema eksplorasi imajinasi yang dipamerkan dalam event 'Tanpa Batas' tahun 2024.",
+        imageSrc: "/images/projects/tanpa-batas.png",
         techTags: ["Photography", "Event", "Exhibition"],
         projectUrl: "#"
     },
     {
-        title: "Aplikasi CLI Layanan Pengiriman",
-        description: "Aplikasi berbasis command-line interface (CLI) untuk simulasi layanan pengiriman. Dikembangkan menggunakan Python sebagai tugas kelompok pada mata kuliah Pemrograman Berbasis Objek di semester 3.",
+        title: "CLI Simulasi Pengiriman",
+        description:
+            "Aplikasi simulasi layanan pengiriman berbasis CLI menggunakan Python. Proyek kelompok untuk mata kuliah PBO (semester 3).",
         imageSrc: "../src/assets/images/projects/oop_pengirimanbarang.png",
         techTags: ["Backend", "Python", "CLI", "Object-Oriented Programming"],
         projectUrl: "https://github.com/ariyoaziz/oop-layanan-pengiriman"
     },
     {
         title: "Pameran Diksar – Rona",
-        description: "Karya fotografi dipamerkan dalam event 'Rona' sebagai bagian dari kegiatan dasar organisasi fotografi pada tahun 2023.",
-        imageSrc: "/images/projects/rona.png", // Ganti dengan gambar jika ada
+        description:
+            "Karya fotografi yang ditampilkan dalam pameran 'Rona' sebagai bagian dari pelatihan dasar organisasi fotografi tahun 2023.",
+        imageSrc: "/images/projects/rona.png",
         techTags: ["Photography", "Event", "Exhibition"],
         projectUrl: "#"
     },
-
     {
         title: "Website Estetika Kopi",
-        description: "Website untuk kedai kopi yang dirancang dengan fokus pada estetika visual dan UX yang ramah pengguna.",
+        description:
+            "Website untuk kedai kopi dengan fokus pada tampilan visual dan pengalaman pengguna yang estetis. Dibangun dengan CodeIgniter 4 dan PHP.",
         imageSrc: "../src/assets/images/projects/estetika_kopi.png",
         techTags: ["Frontend", "CodeIgniter 4", "PHP"],
         projectUrl: "https://github.com/ariyoaziz/pemrograman_web-estetika.kopi-"
